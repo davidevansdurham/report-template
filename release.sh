@@ -26,7 +26,7 @@ if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
     git push origin --tags
-    echo "Pushing commit"
+    echo "Pushing commit to remote"
     git push origin master
 else
     echo "Already a tag on this commit"
