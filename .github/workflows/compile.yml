@@ -3,7 +3,9 @@ name: Compile PDF
 on:
   
   push:
-    branches: [ master ]
+    # branches: [ master ]
+    tags:
+      - '*'
 
   
   workflow_dispatch:
