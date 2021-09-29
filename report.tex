@@ -10,12 +10,11 @@
 % This should work.
 % This is slightly more complicated because I wanted to use "black" as the
 % link colour for abbreviations instead of the hyperref default.
-\usepackage[toc,automake]{glossaries}
-
+\usepackage[toc,automake,nopostdot,numberline]{glossaries}
 \makeglossaries
-%\setabbreviationstyle[acronym]{long-short}
 \loadglsentries{acronyms}
 
+\usepackage{lipsum}                      % For generating placeholder text
 
 \begin{document}
     \cleanlookdateon                    % Date format as 28 September 2021 - omits 'th' etc.
@@ -24,12 +23,7 @@
 
 \maketitle
 
-% Abstract goes here.
-% It is added manually to the table of content to avoid display a chapter number in front of it.
-\section*{Abstract}
-\addcontentsline{toc}{section}{\numberline{}Abstract}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis augue id purus tincidunt mollis. Nulla faucibus in nisi quis dignissim. Proin metus purus, pretium non aliquam eget, ullamcorper dapibus justo. Phasellus vitae malesuada libero. Donec ullamcorper mattis ligula, consequat imperdiet justo porta finibus. Proin lorem odio, feugiat pharetra rutrum sed, porttitor ut quam. Aliquam odio nibh, elementum sit amet velit eget, facilisis mattis nibh. Integer facilisis, nisi sit amet semper mattis, diam ex commodo mauris, nec suscipit nisl est sit amet arcu. Vivamus blandit porta augue. Suspendisse quis leo nec neque pharetra ornare. Ut egestas blandit justo ac suscipit. Sed maximus molestie est vel mattis. Pellentesque ac mauris vestibulum, viverra turpis ut, gravida libero. Vestibulum et augue at odio lobortis ullamcorper eu ac nisi. Cras suscipit eget ipsum sit amet vulputate.
+\input{frontmatter/abstract}
 
 
 
@@ -43,50 +37,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis augue id purus 
 \listoftables
 \newpage
 \glsaddall
-\printglossary[type=main,title={Acronyms}]
-\thispagestyle{empty}
+\thispagestyle{plain}
+%\addcontentsline{toc}{section}{{\numberline{}}Acronyms}
+\printglossary[title={Acronyms}]
 \newpage
 
-\section{Lorem Ipsum}
-%\thispagestyle{empty}
-\label{sec:lorem_ipsum}
 
-Lorem ipsum dolor sit amet \cite{mutiso_electrical_2015}, consectetur adipiscing elit. Vivamus gravida ullamcorper massa id scelerisque. Maecenas efficitur elit et suscipit elementum. Nam purus nisi, consequat sit amet lacus eu, consectetur semper elit. Morbi odio nunc, elementum at dui non, rutrum varius tellus. Nulla facilisi. Proin laoreet varius suscipit. Nullam non maximus justo, id cursus erat.
-
-Sed et malesuada tellus, eu ullamcorper turpis. Proin a ex vitae lectus suscipit dignissim vestibulum mattis purus. Quisque molestie ligula sem, consequat dignissim augue iaculis non. Cras et lectus metus. Cras sit amet neque sodales, laoreet elit ac, convallis nunc. Sed scelerisque quam risus, consectetur lacinia metus pretium a. Sed eget vulputate eros. Quisque porttitor turpis sit amet dui faucibus consectetur. Donec maximus interdum nulla, non feugiat risus aliquam et. Phasellus hendrerit ipsum non metus dignissim suscipit. Etiam sodales, magna nec bibendum tempus, urna urna bibendum est, consequat semper nibh quam sed risus. Ut consectetur lorem vel aliquet euismod. Cras rhoncus nisi a augue tincidunt gravida.
-
-Phasellus at lorem mauris. Sed congue mauris in odio auctor euismod. Donec facilisis dui nunc, et condimentum nisi gravida eget. Ut commodo, nisl in molestie lobortis, elit urna varius metus, eu finibus arcu elit nec lectus. Praesent non condimentum sapien. Aenean venenatis commodo tincidunt. Cras semper, augue vel eleifend luctus, velit eros consequat turpis, vitae imperdiet dui quam vel urna. Etiam nisl turpis, venenatis quis pellentesque nec, ultrices ut libero. Phasellus convallis rutrum turpis ac pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Sed imperdiet mauris turpis, at semper neque malesuada in. Mauris a risus nisi. Sed vulputate nisl risus, ac bibendum ligula pharetra sed. Aenean id sem vitae turpis imperdiet sollicitudin. Morbi ac ipsum quis elit rutrum bibendum eget et augue. Integer tincidunt eros odio, ultrices semper risus facilisis eget. Nunc fringilla vehicula elit quis auctor. Nulla venenatis pellentesque lacus quis laoreet. In hac habitasse platea dictumst. Aliquam porttitor justo vitae malesuada tincidunt. Sed eget massa sed justo sagittis malesuada. Curabitur in placerat eros, et laoreet orci. In ut nibh turpis. Mauris convallis nunc tellus, quis viverra risus sagittis ut. Morbi tempor malesuada diam, a ultricies est. Maecenas vel fringilla tortor, ac viverra massa.
-
-Suspendisse semper sapien sed pulvinar laoreet. Pellentesque tristique rhoncus consectetur. Nullam vel nisl consectetur ipsum vulputate lacinia. Vestibulum blandit libero nec nisi tincidunt, sed ullamcorper nunc suscipit. Duis lorem risus, egestas tempus placerat euismod, pulvinar nec arcu. Mauris sit amet sollicitudin tortor. Ut venenatis ut neque eu fermentum. In sit amet sapien tellus. Aliquam at ante sit amet massa semper volutpat et fermentum nibh.
-
-\subsection{Test Subsection}
-Lorem ipsum dolor sit amet \gls{label} , consectetur adipiscing elit. Vivamus gravida ullamcorper massa id scelerisque. Maecenas efficitur elit et suscipit elementum. Nam purus nisi, consequat sit amet lacus eu, consectetur semper elit. Morbi odio nunc, elementum at dui non, rutrum varius tellus. Nulla facilisi. Proin laoreet varius suscipit. Nullam non maximus justo, id cursus erat.
-
-Sed et malesuada tellus, eu ullamcorper turpis \gls{label2}. Proin a ex vitae lectus suscipit dignissim \gls{label} vestibulum mattis purus. Quisque molestie ligula sem, consequat dignissim augue iaculis non. Cras et lectus metus. Cras sit amet neque sodales, laoreet elit ac, convallis nunc. Sed scelerisque quam risus, consectetur lacinia metus pretium a. Sed eget vulputate eros. Quisque porttitor turpis sit amet dui faucibus consectetur. Donec maximus interdum nulla, non feugiat risus aliquam et. Phasellus hendrerit ipsum non metus dignissim suscipit. Etiam sodales, magna nec bibendum tempus, urna urna bibendum est, consequat semper nibh quam sed risus. Ut consectetur lorem vel aliquet euismod. Cras rhoncus nisi a augue tincidunt gravida.
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{DU.eps}
-    \caption[This is a caption for the list of figures]{Sed et malesuada tellus, eu ullamcorper turpis. Proin a ex vitae lectus susci}
-    \label{testfig}
-\end{figure}
 
 % For each of your chapter. Put them in a separate LaTeX file to be more manageable.
 % One line per chapter.
 % Here we have an “Example Chapter” defined in example_chapter.tex
-%\input{example_chapter}
+\input{sections/introduction}
+\newpage
+\input{sections/literview}
+\newpage
+\input{sections/methods}
+\newpage
+\input{sections/results}
 
 
-\addcontentsline{toc}{chapter}{References}
+\newpage
+\addcontentsline{toc}{section}{\numberline{}References}
 \printbibliography
+\thispagestyle{plain}
+
 
 % Now we switch to the appendices (if any)
-%\appendix
+\newpage
+ \appendix
 
 % Appendices goes here. Defined the same way as main matter chapters.
+\input{appendices/a}
 
 % If you are using TODOs, uncomment this to show them (obviously not in the final thesis submission).
 %\listoftodos

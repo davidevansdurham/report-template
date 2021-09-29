@@ -89,10 +89,12 @@
 \usepackage[utf8]{inputenc}        % Sets encoding 
 \RequirePackage[UKenglish]{isodate} % Gives access to date formats e.g. \today
 \RequirePackage{csquotes}           % Used for inline and block quotes
+\RequirePackage{todonotes}          % Allows writing of to do notes in margins
+\RequirePackage{titlesec}           % Change formatting of section titles
 
 % References options
 \RequirePackage[backend=biber,
-                style=nature,        % unsrt reference style
+                style=chem-acs,        % unsrt reference style
                 backref=false,
                 backrefstyle=two,
                 abbreviate=false,
@@ -111,6 +113,13 @@
 % Label figures by section number
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
+
+% Format section headings
+\titleformat{\section}{\normalfont\LARGE\bfseries}{\thesection}{1em}{\MakeUppercase}
+\titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{\MakeUppercase}
+\titleformat{\subsubsection}{\normalfont\small\scshape}{\thesubsubsection}{1em}{\MakeUppercase}
+
+\titlespacing*{\section}{0pt}{0pt}{50pt}
 
 
 % -----------------------------------------------------
@@ -402,9 +411,17 @@
 
 \fancypagestyle{plain}{ %
   \fancyhf{} % remove everything
+  \fancyfoot[C]{\thepage}
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
 }
+% \fancypagestyle{fancy}{ %
+%   \fancyhf{} % remove everything
+%   \fancyfoot[C]{\thepage}
+%   \fancyhead[C]{ \MakeUppercase{\rightmark} }
+%   \renewcommand{\headrulewidth}{0pt} % remove lines as well
+%   \renewcommand{\footrulewidth}{0pt}
+% }
 
 
 % %% Colours
