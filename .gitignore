@@ -1,5 +1,4 @@
 compile.yml
-release.sh
 .vscode/
 .DS_Store
 *.log

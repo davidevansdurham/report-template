@@ -21,10 +21,6 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: Get version tag
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
       - name: Compile Latex Document
         uses: xu-cheng/latex-action@v2
         with:
@@ -34,4 +30,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: report.pdf
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          tag_name: 0.0.2
