@@ -1,15 +1,15 @@
-% Main thesis template
-% originally written by Chas Nelson
+% Main report template
+% Based on class files from Chas Nelson, adapted by David Evans 2021.
+
 \documentclass[final]{durchemreport}
+
 \title{TITLE}
 \author{AUTHOR}
 \supervisor{Dr. A. D. Visor}
-\reportdesc{PGR First Year Report}
+\reportdesc{This is the purpose of the report}
+
 \addbibresource{biblio.bib}
-% Glossary can be surprisingly hard to get working easily in LaTeX.
-% This should work.
-% This is slightly more complicated because I wanted to use "black" as the
-% link colour for abbreviations instead of the hyperref default.
+
 \usepackage[toc,automake,nopostdot,numberline]{glossaries}
 \makeglossaries
 \loadglsentries{acronyms}
@@ -17,18 +17,16 @@
 \usepackage{lipsum}                      % For generating placeholder text
 
 \begin{document}
-    \cleanlookdateon                    % Date format as 28 September 2021 - omits 'th' etc.
-    % Front page
-% Front page
 
+\cleanlookdateon                    % Date format as 28 September 2021 - omits 'th' etc.
+
+% Generates front page
 \maketitle
 
+% Adds abstract
 \input{frontmatter/abstract}
 
-
-
-% After the abstract, declaration and acknowledgements, we print
-% the table of contents, figures, tables and abbreviations.
+% Add contents etc. on their own new page
 \newpage
 \tableofcontents
 \newpage
@@ -38,22 +36,20 @@
 \newpage
 \glsaddall
 \thispagestyle{plain}
-%\addcontentsline{toc}{section}{{\numberline{}}Acronyms}
 \printglossary[title={Acronyms}]
 \newpage
 
 
-
-% For each of your chapter. Put them in a separate LaTeX file to be more manageable.
-% One line per chapter.
-% Here we have an “Example Chapter” defined in example_chapter.tex
+% One file for each section of the report, with each section starting on a new page
+% To have the new sections starting immediately after the end of the previous seciton,
+% simply remove the \newpage commands inbetween the \input commands
 \input{sections/introduction}
 \newpage
 \input{sections/literview}
 \newpage
 \input{sections/methods}
 \newpage
-\input{sections/results}
+\input{sections/results}ß
 
 
 \newpage
@@ -61,12 +57,11 @@
 \printbibliography
 \thispagestyle{plain}
 
-
 % Now we switch to the appendices (if any)
 \newpage
- \appendix
+\appendix
 
-% Appendices goes here. Defined the same way as main matter chapters.
+% Add each appendix file here if any are included
 \input{appendices/a}
 
 % If you are using TODOs, uncomment this to show them (obviously not in the final thesis submission).

@@ -1,5 +1,5 @@
 % duchemreport class to format for 1st and 2nd year reports
-% Last modified: 27 September 2021 by David Evans
+% Last modified: 29 September 2021 by David Evans
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{durchemreport}
@@ -17,8 +17,6 @@
 \newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
 \newcommand{\@reportdesc}{}
 \newcommand{\reportdesc}[1]{\renewcommand{\@reportdesc}{#1}}
-
-
 
 % Give optional font sizes
 \DeclareOption{12pt}{\renewcommand\@fontsize{12pt}}
@@ -77,7 +75,6 @@
 % -----------------------------------------------------
 
 % Add required packages
-
 \RequirePackage{fancyhdr}           % For headers and footers
 \RequirePackage{graphicx}           % For adding figures/images
 \graphicspath{{./imgs/}}            % Sets default location of figures/images
@@ -94,15 +91,16 @@
 
 % References options
 \RequirePackage[backend=biber,
-                style=chem-acs,        % unsrt reference style
+                style=chem-acs,        % chem-acs reference style
                 backref=false,
                 backrefstyle=two,
                 abbreviate=false,
                 maxnames = 100,
                 ]{biblatex}
-\setcounter{biburlnumpenalty}{9000} %break urls at numbers
-\setcounter{biburlucpenalty}{900}   %break urls at uppercase letters
-\setcounter{biburllcpenalty}{90}    %break urls at lowercase letters
+\setcounter{biburlnumpenalty}{9000} % Break urls at numbers
+\setcounter{biburlucpenalty}{900}   % Break urls at uppercase letters
+\setcounter{biburllcpenalty}{90}    % Break urls at lowercase letters
+
 % Do not use backreferencing 
 %\DefineBibliographyStrings{english}{%
 %    backrefpage  = {\textit{\lowercase{p}.}}, % for single page number
@@ -119,13 +117,13 @@
 \titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{\MakeUppercase}
 \titleformat{\subsubsection}{\normalfont\small\scshape}{\thesubsubsection}{1em}{\MakeUppercase}
 
+% Format spacing between section title and previous and subsequent text
 \titlespacing*{\section}{0pt}{0pt}{50pt}
 
 
 % -----------------------------------------------------
 
 % Define custom title page
-
 \renewcommand*{\maketitle}{
     \begin{titlepage}
     \begin{center}
@@ -208,198 +206,11 @@
     \if@restonecol\twocolumn\fi
     }}
 
-%     %%  Redefinition \listofalgorithms in report.cls
-%     %\newcommand{\listalgorithmname}{List of Algorithms}
-%     %\renewcommand\listofalgorithms{%
-%     %    {\setlength{\parskip}{0mm plus0mm minus0mm}%remove unneccessary white space
-%     %    \if@twocolumn
-%     %      \@restonecoltrue\onecolumn
-%     %    \else
-%     %      \@restonecolfalse
-%     %    \fi
-%     %    \chapter*{\listalgorithmname}%
-%     %    \addcontentsline{toc}{chapter}{\numberline{}\listalgorithmname}
-%     %    \@starttoc{loa}%
-%     %    \if@restonecol\twocolumn\fi
-%     %}}
 
-% % %% Redefinition thebibliograph in report.cls
-% % \renewenvironment{thebibliography}[1]{
-% %     {\setlength{\parskip}{0mm plus0mm minus0mm}%remove unneccessary white space
-% %     \chapter*{\bibname
-% %         \@mkboth{\bibname}{\bibname}}%
-% %     \list{\@biblabel{\@arabic\c@enumiv}}{
-% %         \settowidth\labelwidth{\@biblabel{#1}}%
-% %         \leftmargin\labelwidth
-% %         \advance\leftmargin\labelsep
-% %         \@openbib@code
-% %         \usecounter{enumiv}%
-% %         \let\p@enumiv\@empty
-% %         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-% %     \sloppy
-% %     \clubpenalty4000
-% %     \@clubpenalty \clubpenalty
-% %     \widowpenalty4000%
-% %     \sfcode`\.\@m}}
-% % {\def\@noitemerr
-% %     {\@latex@warning{Empty `thebibliography' environment}}%
-% %     \endlist}
-% %
-% % %% Redefinition of nocite (due to standalone clash)
-% % \makeatletter
-% % \def\@documentnocite#1{\@bsphack
-% %   \@for\@citeb:=#1\do{%
-% %     \edef\@citeb{\expandafter\@firstofone\@citeb}%
-% %     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
-% %     \@ifundefined{b@\@citeb}{\G@refundefinedtrue
-% %       \@latex@warning{Citation `\@citeb' undefined}}{}}%
-% %   \@esphack}
-% % \AtBeginDocument{\let\nocite\@documentnocite}
-% % \makeatother
-
-% %% Macros to allow title/author use throughout document
-% \def\title#1{\gdef\@title{#1}\gdef\THETITLE{#1}}
-% \def\author#1{\gdef\@author{#1}\gdef\THEAUTHOR{#1}}
-
-% %% Redefine main abstract based on default report environment
-% \if@titlepage
-%   \renewenvironment{abstract}{%
-%       \titlepage
-%       \null\vfil
-%       \@beginparpenalty\@lowpenalty
-%       \addcontentsline{toc}{section}{\numberline{}Abstract}
-%       \begin{center}%
-%         \textbf{\Large \THETITLE}
-
-%         \textbf{\large \THEAUTHOR}
-
-%         {\large Submitted for the degree of Doctor of Philosophy\\ March 2017}
-
-%         \@endparpenalty\@M
-%       \end{center}}%
-%      {\par\vfil\null\endtitlepage}
-% \else
-%   \renewenvironment{abstract}{%
-%       \addcontentsline{toc}{section}{\numberline{}Abstract}
-%       \begin{center}
-%         \textbf{\Large \THETITLE}
-
-%         \textbf{\large \THEAUTHOR}
-
-%         {\large Submitted for the degree of Doctor of Philosophy\\ March 2017}
-%       \end{center}
-
-%       \if@twocolumn
-%         %
-%       \else
-%         \small
-%         \begin{center}%
-%           {}%
-%         \end{center}%
-%         \quotation
-%       \fi}
-%       {\if@twocolumn\else\endquotation\fi}
-%     \newpage
-% \fi
-% \makeatother
-
-% %% Declaration Environment
-% \newenvironment{declaration}[0]{
-%     \chapter*{Declaration}
-%     \addcontentsline{toc}{section}{\numberline{}Declaration}
-% }{
-%     \vfill
-%     \noindent \textbf{Copyright \copyright\; \the\year\ by \THEAUTHOR}.\\
-%     ``The copyright of this thesis rests with the author.  No quotations
-%     from it should be published without the author's prior written consent
-%     and information derived from it should be acknowledged''.
-%     \newpage
-% }
-
-% %% Acknowledgements Environment
-% \def\Funders{}
-% \newenvironment{acknowledgements}[0]{
-%     \chapter*{Acknowledgements}
-%     \addcontentsline{toc}{section}{\numberline{}Acknowledgements}
-% }{
-%     \vfill
-%     \begin{center}
-%     % Funding Bodies, with Logos
-%     %% Logo Bar
-%     \newcounter{numFund}
-%     \setcounter{numFund}{0}%
-%     \foreach \body in \Funders{%
-%         \stepcounter{numFund}%
-%     }%
-%         \foreach \body in \Funders{%
-%             \begin{minipage}[t][][t]{0.9\linewidth/\the\value{numFund}}
-%                 \centering
-%                 \includegraphics[width=0.95\linewidth,height=2cm,keepaspectratio=true]{\body}
-%             \end{minipage}
-%         }%
-%     \end{center}
-%     \newpage
-% }
-
-% %% Dedications Environment
-% \newenvironment{dedication}[0]{
-%     \chapter*{Dedication}
-%     \addcontentsline{toc}{chapter}{\numberline{}Dedication}
-% }{
-%     \newpage
-% }
-
-% %% Set-Up Chapter Titles
-% % \usepackage{titlesec}
-% % \titleclass{\chapter}{page}
-% % \assignpagestyle{\chapter}{empty}
-% % \titleformat{\chapter}
-% %     [display]
-% %     {\LARGE\bfseries}
-% %     {\chaptername\ \thechapter}
-% %     {0pt}
-% %     {\Large}
-% %     [\clearpage]
-
-% %% Chapter Abstract Environment
-% \newenvironment{chapabstract}[0]{
-%   \begin{center}
-%   \begin{minipage}{0.8\textwidth}
-% }{
-%   \end{minipage}
-%   \end{center}
-%   \newpage
-% }
-
-% %% Chapter Prologue Environment
-% \newenvironment{prologue}[0]{
-%   \section*{Prologue}
-%   \addcontentsline{toc}{section}{\numberline{}Prologue}
-%   \addtocontents{toc}{\smallskip}
-%   \thispagestyle{logue}
-% }{
-%   % \newpage
-% }
-% %% Chapter epilogue Environment
-% \newenvironment{epilogue}[0]{
-%   % \newpage
-%   \section*{Epilogue}
-%   \addtocontents{toc}{\smallskip}
-%   \addcontentsline{toc}{section}{\numberline{}Epilogue}
-%   \thispagestyle{logue}
-% }{
-% }
 
 % %% Define bold font in math mode from original dmathesis
 % \def\bv#1{\mbox{\boldmath$#1$}}
 
-%% Set Paragraph Indent and Skip, Adjust Spacing for Headings
-% \setlength{\parindent}{0cm}
-% \setlength{\parskip}{5mm plus3mm minus2mm}%TODO:Fix spacing so consistent for lists, headings and such
-% \usepackage{titlesec}
-% \titlespacing\section{20pt}{\parskip}{-\parskip}
-% \titlespacing\subsection{200pt}{\parskip}{-\parskip}
-% \titlespacing\subsubsection{20pt}{\parskip}{-\parskip}
 
 %% Set Header and Footer Layouts
 \pagestyle{fancy}
@@ -415,16 +226,9 @@
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
 }
-% \fancypagestyle{fancy}{ %
-%   \fancyhf{} % remove everything
-%   \fancyfoot[C]{\thepage}
-%   \fancyhead[C]{ \MakeUppercase{\rightmark} }
-%   \renewcommand{\headrulewidth}{0pt} % remove lines as well
-%   \renewcommand{\footrulewidth}{0pt}
-% }
 
 
-% %% Colours
+% Colours
 % \definecolor{blackC}{HTML}{321F20}%#321F20
 % \definecolor{palatine}{HTML}{7E317B}%#7E317B
 % \definecolor{255C}{HTML}{7E317B}%#7E317B
@@ -441,12 +245,8 @@
 % \definecolor{ustinov}{HTML}{003865}%#003865
 % \definecolor{josephinebutler}{HTML}{D22630}%#D22630
 
-% % %% Define Declaration macro for chapter starts
-% % \DeclareDocumentCommand\declaration{m}{%
-% %     \begin{flushright}
-% %         \textit{The work described in this chapter was published in~\cite{#1}.\\}
-% %     \end{flushright}
-% % }
+
+% For use in double side mode with different left right margins
 
 % \makeatletter
 
@@ -472,4 +272,4 @@
 
 % \makeatother
 
-% \endinput
+
