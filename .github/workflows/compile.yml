@@ -28,8 +28,9 @@ jobs:
       - name: Test tag name
         run: |
           echo "This is a test"
-          echo ${{steps.tagName.outputs.tag }}
-          echo $GIT_TAG_NAME
+          echo "Tag is ${GITHUB_REF##*/}"
+          echo "${{steps.tagName.outputs.tag }}"
+          echo "$GIT_TAG_NAME"
 
       # - name: Compile Latex Document
       #   uses: xu-cheng/latex-action@v2
