@@ -1,10 +1,10 @@
-## LaTeX Template for Durham University Chemistry Department
+# LaTeX Template for Durham University Chemistry Department
 
 Last Updated: 29 September 2021
 
 ![Current State](https://github.com/davidevansdurham/report-template/actions/workflows/compile.yml/badge.svg)
 
-### About
+## About
 
 This LaTeX template is provided free of use for anyone who might be interested. It is based on the standard **article** class (somewhat confusingly, as it is a report built on the article class rather than the report class) with a custom class (durchemreport) on top of this.
 
@@ -12,13 +12,13 @@ An example PDF can be found either in the code repository or in the latest relea
 
 Please feel free to change in anyway you see fit. If you spot any errors or something doesn't look right, please feel free to submit an [issue](https://github.com/davidevansdurham/report-template/issues).
 
-I am open to any and all suggestions for improvement of the design. You can either submit an (issue)[https://github.com/davidevansdurham/report-template/issues] or a pull request.
+I am open to any and all suggestions for improvement of the design. You can either submit an [issue](https://github.com/davidevansdurham/report-template/issues) or a pull request.
 
 I do not accept any liability for anything that may happen through the downloading, distribution or use of this template. This is not an official template and is for personal use only. Please ensure for yourself that this fulfils any requirements and/or guidelines set.
 
-### Use
+## Use
 
-#### Quick Setup
+### Quick Setup
 
 The following will assume familiarity with basic LaTeX syntax.
 
@@ -47,7 +47,7 @@ Images should be placed in the `/imgs/` directory and this can be omitted from t
 
 A useful tool to make notes in the text is the `todonotes` package. In the main text, simply write `\todo{This is a todo note}` and it will produce a note in the margin with a line to the location in the text the note was made. This makes it clear that a note is there - much clearer than writing in bold font, italics etc. thinking you will notice when you go back through.
 
-#### Settings
+### Settings
 
 The main setting in this class is the distinction between final and draft versions. This can be changed in the document class declaration in line 4 of `report.tex`.
 
@@ -55,7 +55,7 @@ The final option typesets the document as it should be for printing. The draft o
 
 To change the citation style, alter line 94 in the `durchemreport.cls` file. To see alternative citation styles, see [here](https://www.reed.edu/cis/help/LaTeX/bibtexstyles.html), [here](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) or [here](https://sharelatex.psi.ch/learn/Biblatex_citation_styles)
 
-### Compilation
+## Compilation
 
 To compile the report, follow the standard compilation procedure for LaTeX (I have used `pdflatex` - I can't guarantee this will work with other flavours). In a terminal, use
 
