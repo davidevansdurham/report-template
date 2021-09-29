@@ -111,6 +111,7 @@
 % Label figures by section number
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
+\counterwithin{equation}{section}
 
 % Format section headings
 \titleformat{\section}{\normalfont\LARGE\bfseries}{\thesection}{1em}{\MakeUppercase}

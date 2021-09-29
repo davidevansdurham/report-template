@@ -34,7 +34,9 @@ For a simple use case, in the `acronyms.tex` file, you can add a new acronym usi
 ```
 where the label is what is used in the main text to refer to the acronym. This is done with the `\gls` command, for example `\gls{MD} is a computational method...` would produce 
 > Molecular dynamics (MD) is a computer simulation method...
+
 on the first use, and then subsequently
+
 > MD is a computer simulation method...
 
 To make the main `report.tex` file easy to read, each section should be written in their own files inside the `/sections/` directory. The abstract is in `/frontmatter/abstract.tex` and any appendices should be placed in `/appendices/`. To include these sections in the main report, use `\input{sections/introduction}` - note the absence of the `.tex` extension.
