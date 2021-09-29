@@ -27,20 +27,20 @@ jobs:
         uses: little-core-labs/get-git-tag@v3.0.1
         id: tagName
 
-      - name: Test tag name
-        run: |
-          echo "This is a test"
-          echo "Tag is ${GITHUB_REF##*/}"
-          echo "${{steps.tagName.outputs.tag }}"
-          echo "$GIT_TAG_NAME"
+      # - name: Test tag name
+      #   run: |
+      #     echo "This is a test"
+      #     echo "Tag is ${GITHUB_REF##*/}"
+      #     echo "${{steps.tagName.outputs.tag }}"
+      #     echo "$GIT_TAG_NAME"
 
-      # - name: Compile Latex Document
-      #   uses: xu-cheng/latex-action@v2
-      #   with:
-      #     root_file: report.tex
+      - name: Compile Latex Document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: report.tex
 
-      # - name: Publish PDF
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     files: report.pdf
-      #     tag_name: 0.0.2
+      - name: Publish PDF
+        uses: softprops/action-gh-release@v1
+        with:
+          files: report.pdf
+          tag_name: ${{steps.tagName.outputs.tag }}
