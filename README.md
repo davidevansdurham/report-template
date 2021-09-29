@@ -3,7 +3,7 @@
 Last Updated: 29 September 2021
 
 ![Current State](https://github.com/davidevansdurham/report-template/actions/workflows/compile.yml/badge.svg)
-
+![Current State](https://github.com/davidevansdurham/report-template/actions/workflows/compile_and_release.yml/badge.svg)
 ## About
 
 This LaTeX template is provided free of use for anyone who might be interested. It is based on the standard **article** class (somewhat confusingly, as it is a report built on the article class rather than the report class) with a custom class (durchemreport) on top of this.

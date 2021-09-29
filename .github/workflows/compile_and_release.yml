@@ -1,0 +1,35 @@
+name: Release PDF
+
+on: 
+  push:
+    tags:
+      - '*'
+
+  workflow_dispatch:
+
+jobs:
+  
+  build_pdf:
+    
+    runs-on: ubuntu-latest
+
+    
+    steps:
+      
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Get tag name
+        uses: little-core-labs/get-git-tag@v3.0.1
+        id: tagName
+
+      - name: Compile Latex Document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: report.tex
+
+      - name: Publish PDF
+        uses: softprops/action-gh-release@v1
+        with:
+          files: report.pdf
+          tag_name: ${{steps.tagName.outputs.tag }}
