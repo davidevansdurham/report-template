@@ -88,7 +88,7 @@
 \RequirePackage{csquotes}           % Used for inline and block quotes
 \RequirePackage{todonotes}          % Allows writing of to do notes in margins
 \RequirePackage{titlesec}           % Change formatting of section titles
-
+\RequirePackage{multirow}           % For tables
 % References options
 \RequirePackage[backend=biber,
                 style=chem-acs,        % chem-acs reference style
@@ -108,10 +108,11 @@
 %}
 
 
-% Label figures by section number
+% Label figures, equations and tables by section number
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
 \counterwithin{equation}{section}
+\counterwithin{table}{section}
 
 % Format section headings
 \titleformat{\section}{\normalfont\LARGE\bfseries}{\thesection}{1em}{\MakeUppercase}
