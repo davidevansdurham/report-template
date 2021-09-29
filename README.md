@@ -32,7 +32,7 @@ For a simple use case, in the `acronyms.tex` file, you can add a new acronym usi
 ```
 \newacronym{MD}{MD}{Molecular Dynamics}
 ```
-where the label is what is used in the main text to refer to the acronym. This is done with the `\gls` command, for example `\gls{MD} is a computational method...` would produce 
+where the text in the first {} is what is used in the main text to refer to the acronym, the second {} is the acronym and the third {} is for the definition. This is done with the `\gls` command, for example `\gls{MD} is a computational method...` would produce 
 > Molecular dynamics (MD) is a computer simulation method...
 
 on the first use, and then subsequently
