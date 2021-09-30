@@ -107,7 +107,7 @@
 \setcounter{biburlnumpenalty}{9000} % Break urls at numbers
 \setcounter{biburlucpenalty}{900}   % Break urls at uppercase letters
 \setcounter{biburllcpenalty}{90}    % Break urls at lowercase letters
-
+\DeclareFieldFormat{labelnumberwidth}{[#1]}
 % Do not use backreferencing 
 %\DefineBibliographyStrings{english}{%
 %    backrefpage  = {\textit{\lowercase{p}.}}, % for single page number

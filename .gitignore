@@ -1,4 +1,3 @@
-release.sh
 .vscode/
 .DS_Store
 *.out
@@ -18,3 +17,5 @@ release.sh
 *.lof
 *.bbl
 durchemreport2.cls
+release.sh
+DU-eps-converted-to.pdf

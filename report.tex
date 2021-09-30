@@ -1,4 +1,3 @@
-% Main report template
 % Based on class files from Chas Nelson, adapted by David Evans 2021.
 
 \documentclass[final]{durchemreport}
@@ -14,11 +13,13 @@
 \makeglossaries
 \loadglsentries{acronyms}
 
-\usepackage{lipsum}                      % For generating placeholder text
+% For generating placeholder text
+\usepackage{lipsum}                      
 
 \begin{document}
 
-\cleanlookdateon                    % Date format as 28 September 2021 - omits 'th' etc.
+% Date format as 28 September 2021 - omits 'th' etc.
+\cleanlookdateon                    
 
 % Generates front page
 \maketitle
@@ -38,18 +39,16 @@
 \printglossary[title={Acronyms}]
 \newpage
 
-
 % One file for each section of the report, with each section starting on a new page
 % To have the new sections starting immediately after the end of the previous seciton,
 % simply remove the \newpage commands inbetween the \input commands
 \input{sections/introduction}
 \newpage
-\input{sections/literview}
+\input{sections/litreview}
 \newpage
 \input{sections/methods}
 \newpage
-\input{sections/results}ß
-
+\input{sections/results}
 
 \newpage
 \addcontentsline{toc}{section}{\numberline{}References}
