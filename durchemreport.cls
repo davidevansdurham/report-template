@@ -50,6 +50,9 @@
     \geometry{a4paper,includeheadfoot, margin=1.5in}
     % 1.5 Spacing for Final Document
     \onehalfspacing
+    % Hyperref for cross-referencing links in text
+    % No surrounding box for final print state
+    \RequirePackage[hidelinks]{hyperref} 
 \else
     \LoadClass[draft,\@fontsize,a4paper]{article}
     %  Set Margins to 1.5cm all and have margin notes in page.
@@ -61,6 +64,9 @@
     \backgroundsetup{contents={DRAFT}}
     % Check References
     \usepackage{refcheck}
+    % Hyperref for cross-referencing links in text
+    % Surrounding box visible for draft print state
+    \RequirePackage{hyperref}
     % Line Numbers
     \usepackage{lineno}
     \modulolinenumbers[5]
@@ -89,6 +95,7 @@
 \RequirePackage{todonotes}          % Allows writing of to do notes in margins
 \RequirePackage{titlesec}           % Change formatting of section titles
 \RequirePackage{multirow}           % For tables
+
 % References options
 \RequirePackage[backend=biber,
                 style=chem-acs,        % chem-acs reference style

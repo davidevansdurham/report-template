@@ -1,6 +1,7 @@
 release.sh
 .vscode/
 .DS_Store
+*.out
 *.log
 *.aux
 *.bcf
